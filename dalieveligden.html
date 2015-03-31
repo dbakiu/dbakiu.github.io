@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Дали е велигден</title>
+</head>
+
+<div id="veligdenTekst" style="font-size:150px; width:500px; margin:0 auto; text-align:center;">
+</div>
+<script>
+	var todayDate = new Date();
+	var year = todayDate.getFullYear();
+	var a = year % 19;
+	var d = year % 4;
+	var e = year % 7;
+	var h = (19*a + 15)%30;
+	var i = 2 * d + 4 * e + 6 * h;
+	var j = i % 7;
+	var k = 3 + h + j;
+	var month = (k < 31)?4:5;
+	var day = (k > 30)?k-30:k;
+	if(month < 9){
+		month = "0" + month;
+	}
+	if(day < 9){
+		day = "0" + month;
+	}
+	var easterDate = year + "-" + month + "-" + day;
+	var todayDateFormatted = new Date().toJSON().slice(0,10)		
+    var veligdenParagraf = document.createElement("P");
+	if(todayDateFormatted == easterDate){
+		var veligdenStatus = document.createTextNode("ДА.");
+	}
+	else{
+		var veligdenStatus = document.createTextNode("НЕ.");
+	}
+	veligdenParagraf.appendChild(veligdenStatus);
+    document.getElementById("veligdenTekst").appendChild(veligdenParagraf);
+</script>
+
+</body>
+</html>
