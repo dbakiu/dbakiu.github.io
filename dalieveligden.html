@@ -9,6 +9,15 @@
 </div>
 <script>
 	var todayDate = new Date();
+/****************************************************
+ * Orthodox Easter Calculator                       *
+ * Unobtrusive JavaScripts                          *
+ * copyright Stephen Chapman http://www.felgall.com *
+ * May 2009                                         *
+ *                                                  *
+ * You may use this script provided that you        *
+ * include this copyright notice with the code.     *
+ ****************************************************/
 	var year = todayDate.getFullYear();
 	var a = year % 19;
 	var d = year % 4;
@@ -19,6 +28,8 @@
 	var k = 3 + h + j;
 	var month = (k < 31)?4:5;
 	var day = (k > 30)?k-30:k;
+/* End calculator */	
+
 	if(month < 9){
 		month = "0" + month;
 	}
